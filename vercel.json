@@ -1,0 +1,25 @@
+{
+  "buildCommand": "node build.js",
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/api/feed", "destination": "/api/feed.js" },
+    { "source": "/api/digest", "destination": "/api/digest.js" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
+        { "key": "Cache-Control", "value": "s-maxage=300, stale-while-revalidate=600" }
+      ]
+    },
+    {
+      "source": "/(feed-x|feed-podcasts)\\.json",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "s-maxage=300, stale-while-revalidate=600" }
+      ]
+    }
+  ]
+}

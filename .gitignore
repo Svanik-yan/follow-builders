@@ -1,4 +1,7 @@
 scripts/node_modules/
+node_modules/
 .env
 *.log
 .DS_Store
+public/
+.vercel/
